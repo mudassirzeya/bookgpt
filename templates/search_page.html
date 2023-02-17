@@ -1,0 +1,30 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<style>
+    .center-div {
+			text-align: center;
+	}
+</style>
+<div>
+    <form action="" method="get">
+        <div class="row">
+            <div class="col">
+                <textarea class="form-control" name="searched_text" id="" rows="2" placeholder="Search Here..">{{searched_text|default_if_none:''}}</textarea>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-2">
+            <button type="" class="btn btn-success" onclick="this.form.submit(); this.innerHTML = 'please Wait...';"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+</div>
+<div class="row p-4 center-div">
+    <div class="bg-info p-2 d-flex align-items-center justify-content-center text-light" style="height: 400px; width: 100%;">
+        {% if response_text %}
+            <h3>{{response_text}}</h3>
+        {% else %}
+            <h3>You Will Get Your Answer Here...</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
